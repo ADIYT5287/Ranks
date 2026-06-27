@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Premium Minecraft Ranks</title>
+
+<link rel="stylesheet" href="ranks.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- Animated Background -->
+<div class="background">
+<div class="blob b1"></div>
+<div class="blob b2"></div>
+<div class="blob b3"></div>
+</div>
+
+<!-- Navigation -->
+
+<nav>
+
+<div class="logo">
+
+MCPLAY STORE
+
+</div>
+
+<ul>
+
+<li><a href="info.html">Home</a></li>
+
+<li><a href="about.html">About</a></li>
+
+<li><a href="index.html">Ranks</a></li>
+
+<li><a href="contact.html">Contact</a></li>
+
+</ul>
+
+</nav>
+
+<!-- Hero -->
+
+<section class="hero">
+
+<div class="glass">
+
+<h3 class="subtitle">
+
+PREMIUM GAMING EXPERIENCE
+
+</h3>
+
+<h1 class="title">
+
+Upgrade Your
+
+<span>Minecraft Rank</span>
+
+</h1>
+
+<p>
+
+Unlock exclusive commands, kits, particles,
+cosmetics, flying, crate keys and much more.
+
+</p>
+
+<a href="#store" class="button">
+
+VIEW STORE
+
+</a>
+
+</div>
+
+</section>
+
+<!-- Rank Cards -->
+
+<section class="store" id="store">
+
+<div class="rank">
+
+<h2>Hero</h2>
+
+<h1>$1.99</h1>
+
+<ul>
+
+<li>✔ VIP Prefix</li>
+
+<li>✔ Starter Kit</li>
+
+<li>✔ 2 Homes</li>
+
+<li>✔ Daily Reward</li>
+
+</ul>
+
+<a href="Heropay.html">BUY NOW</a>
+
+</div>
+
+<div class="rank popular">
+
+<div class="badge">
+
+MOST POPULAR
+
+</div>
+
+<h2>Legend</h2>
+
+<h1>$3.99</h1>
+
+<ul>
+
+<li>✔ Fly Command</li>
+
+<li>✔ 5 Homes</li>
+
+<li>✔ Better Kit</li>
+
+<li>✔ Crate Keys</li>
+
+</ul>
+
+<a href="Legendpay.html">BUY NOW</a>
+
+</div>
+
+<div class="rank legend">
+
+<h2>Ultimate</h2>
+
+<h1>$8.99</h1>
+
+<ul>
+
+<li>✔ Unlimited Homes</li>
+
+<li>✔ Fly + Heal</li>
+
+<li>✔ Premium Cosmetics</li>
+
+<li>✔ 15 Crate Keys</li>
+
+</ul>
+
+<a href="Ultimatepay.html">BUY NOW</a>
+
+</div>
+
+</section>
+
+<script>
+  /* ===========================
+   TYPING ANIMATION
+=========================== */
+
+const subtitle = document.querySelector(".subtitle");
+
+const words = [
+  "PREMIUM GAMING EXPERIENCE",
+  "BEST MINECRAFT SERVER",
+  "UNLOCK EXCLUSIVE PERKS",
+  "JOIN THOUSANDS OF PLAYERS"
+];
+
+let word = 0;
+let letter = 0;
+let deleting = false;
+
+function typing() {
+  
+  let current = words[word];
+  
+  if (!deleting) {
+    
+    subtitle.textContent = current.substring(0, letter++);
+  }
+  else {
+    
+    subtitle.textContent = current.substring(0, letter--);
+  }
+  
+  let speed = deleting ? 45 : 90;
+  
+  if (!deleting && letter > current.length) {
+    
+    deleting = true;
+    speed = 1500;
+    
+  }
+  
+  if (deleting && letter === 0) {
+    
+    deleting = false;
+    word = (word + 1) % words.length;
+    
+  }
+  
+  setTimeout(typing, speed);
+  
+}
+
+typing();
+
+/* ===========================
+   SCROLL REVEAL
+=========================== */
+
+const reveal = document.querySelectorAll(".rank");
+
+const observer = new IntersectionObserver(entries => {
+  
+  entries.forEach(entry => {
+    
+    if (entry.isIntersecting) {
+      
+      entry.target.classList.add("show");
+      
+    }
+    
+  });
+  
+});
+
+reveal.forEach(card => {
+  
+  card.classList.add("hidden");
+  
+  observer.observe(card);
+  
+});
+
+/* ===========================
+   MOUSE GLOW
+=========================== */
+
+const glow = document.createElement("div");
+
+glow.className = "cursorGlow";
+
+document.body.appendChild(glow);
+
+document.addEventListener("mousemove", e => {
+  
+  glow.style.left = e.clientX + "px";
+  glow.style.top = e.clientY + "px";
+  
+});
+
+/* ===========================
+   STAR BACKGROUND
+=========================== */
+
+for (let i = 0; i < 150; i++) {
+  
+  const star = document.createElement("div");
+  
+  star.className = "star";
+  
+  star.style.left = Math.random() * 100 + "vw";
+  star.style.top = Math.random() * 100 + "vh";
+  
+  star.style.animationDuration = (2 + Math.random() * 5) + "s";
+  
+  document.body.appendChild(star);
+  
+}
+
+/* ===========================
+   3D CARD EFFECT
+=========================== */
+
+const cards = document.querySelectorAll(".rank");
+
+cards.forEach(card => {
+  
+  card.addEventListener("mousemove", e => {
+    
+    const rect = card.getBoundingClientRect();
+    
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    const rotateY = (x - rect.width / 2) / 15;
+    const rotateX = -(y - rect.height / 2) / 15;
+    
+    card.style.transform =
+      
+      `perspective(1000px)
+rotateX(${rotateX}deg)
+rotateY(${rotateY}deg)
+translateY(-12px)`;
+    
+  });
+  
+  card.addEventListener("mouseleave", () => {
+    
+    card.style.transform = "perspective(1000px) rotateX(0deg) rotateY(0deg)";
+    
+  });
+  
+});
+</script>
+
+<style>
+  /* ===========================
+   GOOGLE FONT & RESET
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#050816;
+    color:#fff;
+    overflow-x:hidden;
+    min-height:100vh;
+}
+
+/* ===========================
+   ANIMATED BACKGROUND
+=========================== */
+
+.background{
+    position:fixed;
+    inset:0;
+    z-index:-5;
+    overflow:hidden;
+    background:
+    radial-gradient(circle at top left,#0ea5e944,transparent 40%),
+    radial-gradient(circle at bottom right,#7c3aed55,transparent 40%),
+    #050816;
+}
+
+.blob{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(70px);
+    animation:float 12s ease-in-out infinite;
+}
+
+.b1{
+    width:350px;
+    height:350px;
+    background:#00e5ff;
+    top:-100px;
+    left:-100px;
+}
+
+.b2{
+    width:300px;
+    height:300px;
+    background:#7c3aed;
+    bottom:-80px;
+    right:-80px;
+    animation-delay:2s;
+}
+
+.b3{
+    width:250px;
+    height:250px;
+    background:#2563eb;
+    top:40%;
+    left:45%;
+    animation-delay:4s;
+}
+
+@keyframes float{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-45px);}
+}
+
+/* ===========================
+   NAVBAR
+=========================== */
+
+nav{
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:22px 8%;
+    position:sticky;
+    top:0;
+    z-index:999;
+    backdrop-filter:blur(18px);
+    background:rgba(255,255,255,.05);
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.logo{
+    font-size:30px;
+    font-weight:700;
+    color:#38bdf8;
+    letter-spacing:2px;
+    text-shadow:0 0 20px cyan;
+    transition:.4s;
+}
+
+.logo:hover{
+    transform:scale(1.08);
+    text-shadow:0 0 35px cyan;
+}
+
+nav ul{
+    display:flex;
+    gap:35px;
+    list-style:none;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    position:relative;
+    transition:.4s;
+}
+
+/* Text Hover Effect */
+
+nav a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-6px;
+    width:0%;
+    height:2px;
+    background:#00e5ff;
+    transition:.4s;
+}
+
+nav a:hover{
+    color:#00e5ff;
+    text-shadow:0 0 12px cyan;
+}
+
+nav a:hover::after{
+    width:100%;
+}
+
+/* ===========================
+   HERO
+=========================== */
+
+.hero{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:90vh;
+    padding:30px;
+}
+
+.glass{
+
+    width:900px;
+
+    padding:55px;
+
+    text-align:center;
+
+    border-radius:30px;
+
+    background:rgba(255,255,255,.07);
+
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.12);
+
+    box-shadow:
+    0 0 35px rgba(0,255,255,.18);
+
+}
+
+/* Subtitle */
+
+.subtitle{
+
+    letter-spacing:4px;
+
+    color:#38bdf8;
+
+    margin-bottom:20px;
+
+    animation:fadeDown 1s;
+
+}
+
+/* Main Title */
+
+.title{
+
+    font-size:65px;
+
+    line-height:1.1;
+
+    margin-bottom:25px;
+
+}
+
+.title span{
+
+    background:linear-gradient(
+    90deg,
+    #00ffff,
+    #7c3aed,
+    #00ffff
+    );
+
+    background-size:300%;
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+
+    animation:gradient 5s linear infinite;
+
+}
+
+@keyframes gradient{
+
+    100%{
+        background-position:300%;
+    }
+
+}
+
+.glass p{
+
+    color:#d1d5db;
+
+    font-size:18px;
+
+    line-height:1.8;
+
+    margin-bottom:35px;
+
+}
+
+/* ===========================
+   BUTTON
+=========================== */
+
+.button{
+
+display:inline-block;
+
+padding:16px 40px;
+
+border-radius:14px;
+
+text-decoration:none;
+
+color:white;
+
+background:linear-gradient(45deg,#00b7ff,#7c3aed);
+
+box-shadow:0 0 25px #00b7ff;
+
+transition:.35s;
+
+font-weight:600;
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.button:hover{
+
+transform:translateY(-6px);
+
+box-shadow:
+
+0 0 25px cyan,
+
+0 0 50px cyan,
+
+0 0 80px cyan;
+
+}
+
+.button::before{
+
+content:"";
+
+position:absolute;
+
+top:0;
+
+left:-120%;
+
+width:50%;
+
+height:100%;
+
+background:rgba(255,255,255,.4);
+
+transform:skewX(-25deg);
+
+transition:.6s;
+
+}
+
+.button:hover::before{
+
+left:160%;
+
+}
+
+/* ===========================
+   RANK CARDS
+=========================== */
+
+.store{
+
+display:flex;
+
+justify-content:center;
+
+gap:35px;
+
+padding:80px;
+
+flex-wrap:wrap;
+
+}
+
+.rank{
+
+width:320px;
+
+padding:35px;
+
+border-radius:25px;
+
+background:rgba(255,255,255,.06);
+
+backdrop-filter:blur(20px);
+
+border:1px solid rgba(255,255,255,.12);
+
+text-align:center;
+
+transition:.45s;
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.rank:hover{
+
+transform:translateY(-15px) scale(1.05);
+
+box-shadow:
+
+0 0 30px cyan,
+
+0 0 55px #7c3aed;
+
+}
+
+.rank h2{
+
+font-size:34px;
+
+margin-bottom:15px;
+
+color:#38bdf8;
+
+transition:.3s;
+
+}
+
+.rank:hover h2{
+
+letter-spacing:2px;
+
+text-shadow:0 0 20px cyan;
+
+}
+
+.rank h1{
+
+font-size:48px;
+
+margin-bottom:20px;
+
+color:white;
+
+}
+
+.rank ul{
+
+list-style:none;
+
+margin-bottom:30px;
+
+}
+
+.rank li{
+
+padding:8px;
+
+transition:.3s;
+
+}
+
+.rank li:hover{
+
+color:#00ffff;
+
+transform:translateX(10px);
+
+}
+
+.rank a{
+
+display:inline-block;
+
+padding:15px 35px;
+
+background:#00b7ff;
+
+border-radius:12px;
+
+text-decoration:none;
+
+color:black;
+
+font-weight:bold;
+
+transition:.3s;
+
+}
+
+.rank a:hover{
+
+background:white;
+
+transform:scale(1.08);
+
+box-shadow:0 0 25px cyan;
+
+}
+
+/* Most Popular Badge */
+
+.badge{
+
+position:absolute;
+
+top:18px;
+
+right:-45px;
+
+width:180px;
+
+padding:8px;
+
+background:gold;
+
+color:black;
+
+font-size:13px;
+
+font-weight:bold;
+
+transform:rotate(45deg);
+
+}
+
+/* Legend Card */
+
+.legend{
+
+border:1px solid gold;
+
+box-shadow:0 0 20px gold;
+
+}
+
+.legend h2{
+
+color:gold;
+
+}
+
+/* ===========================
+   ANIMATIONS
+=========================== */
+
+@keyframes fadeDown{
+
+from{
+
+opacity:0;
+
+transform:translateY(-50px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+/* ===========================
+   SCROLL REVEAL
+=========================== */
+
+.hidden{
+
+opacity:0;
+transform:translateY(100px);
+
+transition:1s;
+
+}
+
+.show{
+
+opacity:1;
+transform:translateY(0);
+
+}
+
+/* ===========================
+   CURSOR GLOW
+=========================== */
+
+.cursorGlow{
+
+position:fixed;
+
+width:220px;
+height:220px;
+
+background:radial-gradient(circle,
+rgba(0,255,255,.22),
+transparent);
+
+border-radius:50%;
+
+pointer-events:none;
+
+filter:blur(45px);
+
+transform:translate(-50%,-50%);
+
+z-index:-1;
+
+}
+
+/* ===========================
+   STARS
+=========================== */
+
+.star{
+
+position:fixed;
+
+width:2px;
+height:2px;
+
+background:white;
+
+border-radius:50%;
+
+animation:twinkle infinite;
+
+z-index:-2;
+
+}
+
+@keyframes twinkle{
+
+0%,100%{
+
+opacity:.2;
+transform:scale(.7);
+
+}
+
+50%{
+
+opacity:1;
+transform:scale(2);
+
+}
+
+}
+
+/* ===========================
+   FLOATING RANK CARDS
+=========================== */
+
+.rank{
+
+animation:floating 4s ease-in-out infinite;
+
+}
+
+.rank:nth-child(2){
+
+animation-delay:1s;
+
+}
+
+.rank:nth-child(3){
+
+animation-delay:2s;
+
+}
+
+@keyframes floating{
+
+0%,100%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-12px);
+
+}
+
+}
+
+/* ===========================
+   GLOWING PRICE
+=========================== */
+
+.rank h1{
+
+animation:priceGlow 2s infinite alternate;
+
+}
+
+@keyframes priceGlow{
+
+from{
+
+text-shadow:0 0 8px cyan;
+
+}
+
+to{
+
+text-shadow:
+
+0 0 18px cyan,
+
+0 0 35px cyan;
+
+}
+
+}
+
+/* ===========================
+   TITLE HOVER
+=========================== */
+
+.title{
+
+transition:.4s;
+
+}
+
+.title:hover{
+
+letter-spacing:3px;
+
+text-shadow:
+
+0 0 15px cyan,
+
+0 0 30px cyan;
+
+}
+
+</style>
+
+</body>=
+</html>
