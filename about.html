@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  
+  <style>
+    
+    /* Google Font */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#050816;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* Animated Background */
+.bg-animation{
+    position:fixed;
+    inset:0;
+    z-index:-2;
+    overflow:hidden;
+    background:
+    radial-gradient(circle at top left,#1d4ed833,transparent 40%),
+    radial-gradient(circle at bottom right,#7c3aed33,transparent 40%),
+    #050816;
+}
+
+.bg-animation span{
+    position:absolute;
+    border-radius:50%;
+    background:rgba(0,255,255,.15);
+    animation:float 12s infinite ease-in-out;
+}
+
+.bg-animation span:nth-child(1){
+    width:220px;
+    height:220px;
+    top:5%;
+    left:5%;
+}
+
+.bg-animation span:nth-child(2){
+    width:150px;
+    height:150px;
+    right:8%;
+    top:20%;
+    animation-delay:2s;
+}
+
+.bg-animation span:nth-child(3){
+    width:280px;
+    height:280px;
+    bottom:8%;
+    left:15%;
+    animation-delay:4s;
+}
+
+.bg-animation span:nth-child(4){
+    width:180px;
+    height:180px;
+    right:18%;
+    bottom:5%;
+    animation-delay:6s;
+}
+
+.bg-animation span:nth-child(5){
+    width:120px;
+    height:120px;
+    left:45%;
+    top:35%;
+    animation-delay:8s;
+}
+
+@keyframes float{
+
+0%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(-40px);
+}
+
+100%{
+transform:translateY(0px);
+}
+
+}
+
+/* Navbar */
+
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:25px 8%;
+position:sticky;
+top:0;
+background:rgba(255,255,255,.05);
+backdrop-filter:blur(15px);
+border-bottom:1px solid rgba(255,255,255,.08);
+z-index:100;
+}
+
+.logo{
+font-size:28px;
+font-weight:700;
+color:#38bdf8;
+text-shadow:0 0 20px cyan;
+}
+
+nav ul{
+display:flex;
+list-style:none;
+gap:35px;
+}
+
+nav ul li a{
+color:white;
+text-decoration:none;
+transition:.3s;
+font-weight:500;
+}
+
+nav ul li a:hover{
+color:#38bdf8;
+text-shadow:0 0 15px cyan;
+}
+
+/* Hero */
+
+.hero{
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:90vh;
+padding:40px;
+}
+
+.glass{
+
+width:900px;
+padding:55px;
+
+background:rgba(255,255,255,.07);
+
+backdrop-filter:blur(20px);
+
+border:1px solid rgba(255,255,255,.15);
+
+border-radius:30px;
+
+box-shadow:
+0 0 30px rgba(0,255,255,.18);
+
+text-align:center;
+
+animation:fadeUp 1.5s;
+
+}
+
+/* Heading */
+
+.small-title{
+
+color:#38bdf8;
+
+letter-spacing:3px;
+
+margin-bottom:15px;
+
+}
+
+.title{
+
+font-size:65px;
+
+line-height:1.1;
+
+margin-bottom:25px;
+
+}
+
+.title span{
+
+background:linear-gradient(90deg,#00ffff,#7c3aed,#38bdf8);
+
+background-size:300%;
+
+-webkit-background-clip:text;
+
+-webkit-text-fill-color:transparent;
+
+animation:gradient 5s infinite linear;
+
+}
+
+@keyframes gradient{
+
+0%{background-position:0%;}
+
+100%{background-position:300%;}
+
+}
+
+.glass p{
+
+font-size:18px;
+
+color:#d1d5db;
+
+line-height:1.8;
+
+margin-bottom:40px;
+
+}
+
+/* Buttons */
+
+.buttons{
+
+display:flex;
+
+justify-content:center;
+
+gap:25px;
+
+flex-wrap:wrap;
+
+}
+
+.btn,.btn2{
+
+padding:16px 40px;
+
+border-radius:14px;
+
+text-decoration:none;
+
+font-weight:600;
+
+transition:.4s;
+
+backdrop-filter:blur(15px);
+
+}
+
+.btn{
+
+background:#00c8ff;
+
+color:black;
+
+box-shadow:0 0 20px cyan;
+
+}
+
+.btn:hover{
+
+transform:translateY(-6px);
+
+box-shadow:
+
+0 0 20px cyan,
+
+0 0 45px cyan,
+
+0 0 70px cyan;
+
+}
+
+.btn2{
+
+background:rgba(255,255,255,.08);
+
+border:1px solid rgba(255,255,255,.2);
+
+color:white;
+
+}
+
+.btn2:hover{
+
+background:#7c3aed;
+
+box-shadow:
+
+0 0 25px #7c3aed,
+
+0 0 50px #7c3aed;
+
+}
+
+/* Cards */
+
+.features{
+
+display:flex;
+
+justify-content:center;
+
+gap:30px;
+
+flex-wrap:wrap;
+
+padding:70px 8%;
+
+}
+
+.card{
+
+width:300px;
+
+padding:35px;
+
+background:rgba(255,255,255,.06);
+
+border:1px solid rgba(255,255,255,.12);
+
+border-radius:25px;
+
+backdrop-filter:blur(18px);
+
+transition:.4s;
+
+text-align:center;
+
+}
+
+.card:hover{
+
+transform:translateY(-15px) scale(1.04);
+
+box-shadow:
+
+0 0 25px cyan,
+
+0 0 45px #7c3aed;
+
+}
+
+.card h2{
+
+margin-bottom:15px;
+
+color:#38bdf8;
+
+}
+
+.card p{
+
+color:#d1d5db;
+
+line-height:1.7;
+
+}
+
+/* Footer */
+
+footer{
+
+padding:30px;
+
+text-align:center;
+
+color:#94a3b8;
+
+}
+
+/* Animation */
+
+@keyframes fadeUp{
+
+from{
+
+opacity:0;
+
+transform:translateY(80px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+    
+  </style>
+
+<!-- Animated Background -->
+<div class="bg-animation">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+
+<!-- Navbar -->
+<nav>
+
+<div class="logo">
+MC STORE
+</div>
+
+<ul>
+
+<li><a href="home.html">Home</a></li>
+
+<li><a href="index.html">Ranks</a></li>
+
+<li><a href="contact.html">Contact</a></li>
+
+</ul>
+
+</nav>
+
+<!-- Hero Section -->
+
+<section class="hero">
+
+<div class="glass">
+
+<h3 class="small-title">
+WELCOME TO OUR COMMUNITY
+</h3>
+
+<h1 class="title">
+Building The <span>Best</span><br>
+Minecraft Experience
+</h1>
+
+<p>
+
+Our mission is to provide players with premium
+Minecraft ranks, secure payments, exciting
+features, and an unforgettable experience.
+
+</p>
+
+<div class="buttons">
+
+<a href="home.html" class="btn">
+Back Home
+</a>
+
+<a href="contact.html" class="btn2">
+Contact Us
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- Features -->
+
+<section class="features">
+
+<div class="card">
+
+<h2>⚡ Performance</h2>
+
+<p>
+
+Our server delivers smooth gameplay
+with optimized performance.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h2>🛡 Security</h2>
+
+<p>
+
+Safe payment system and secure player
+accounts.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h2>💎 Premium</h2>
+
+<p>
+
+Unique ranks with exclusive perks
+and cosmetics.
+
+</p>
+
+</div>
+
+</section>
+
+<footer>
+
+© 2026 | MCPLAY Shop 
+
+</footer>
+
+<script>
+    // ===============================
+// Typing Animation
+// ===============================
+
+const title = document.querySelector(".small-title");
+
+const words = [
+    "WELCOME TO OUR COMMUNITY",
+    "PREMIUM MINECRAFT SERVER",
+    "BEST GAMING EXPERIENCE",
+    "PLAY • EXPLORE • ENJOY"
+];
+
+let wordIndex = 0;
+let charIndex = 0;
+let deleting = false;
+
+function typeEffect() {
+    
+    const current = words[wordIndex];
+    
+    if (!deleting) {
+        title.textContent = current.substring(0, charIndex++);
+    } else {
+        title.textContent = current.substring(0, charIndex--);
+    }
+    
+    let speed = deleting ? 45 : 90;
+    
+    if (!deleting && charIndex === current.length + 1) {
+        deleting = true;
+        speed = 1800;
+    }
+    
+    if (deleting && charIndex === 0) {
+        deleting = false;
+        wordIndex = (wordIndex + 1) % words.length;
+    }
+    
+    setTimeout(typeEffect, speed);
+}
+
+typeEffect();
+
+
+// ===============================
+// Scroll Reveal Animation
+// ===============================
+
+const observer = new IntersectionObserver(entries => {
+    
+    entries.forEach(entry => {
+        
+        if (entry.isIntersecting) {
+            
+            entry.target.classList.add("show");
+            
+        }
+        
+    });
+    
+});
+
+document.querySelectorAll(".card").forEach(card => {
+    
+    card.classList.add("hidden");
+    
+    observer.observe(card);
+    
+});
+
+
+// ===============================
+// Mouse Glow
+// ===============================
+
+const glow = document.createElement("div");
+
+glow.className = "cursor-glow";
+
+document.body.appendChild(glow);
+
+document.addEventListener("mousemove", e => {
+    
+    glow.style.left = e.clientX + "px";
+    
+    glow.style.top = e.clientY + "px";
+    
+});
+
+
+// ===============================
+// Random Stars
+// ===============================
+
+for (let i = 0; i < 120; i++) {
+    
+    const star = document.createElement("span");
+    
+    star.className = "star";
+    
+    star.style.left = Math.random() * 100 + "vw";
+    
+    star.style.top = Math.random() * 100 + "vh";
+    
+    star.style.animationDuration = (2 + Math.random() * 4) + "s";
+    
+    star.style.animationDelay = Math.random() * 5 + "s";
+    
+    document.body.appendChild(star);
+    
+}
+</script>
+
+</body>
+</html>

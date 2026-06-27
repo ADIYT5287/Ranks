@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MC STORE | Home</title>
+
+<link rel="stylesheet" href="home.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<style>
+  /* =====================================
+   RESET & GLOBAL
+===================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#050816;
+    color:#fff;
+    overflow-x:hidden;
+    min-height:100vh;
+}
+
+/* =====================================
+   ANIMATED BACKGROUND
+===================================== */
+
+.background{
+    position:fixed;
+    inset:0;
+    z-index:-10;
+    overflow:hidden;
+    background:
+    radial-gradient(circle at top left,#00d9ff22,transparent 35%),
+    radial-gradient(circle at bottom right,#7c3aed33,transparent 35%),
+    #050816;
+}
+
+.blob{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(80px);
+    animation:floatBlob 10s ease-in-out infinite;
+}
+
+.b1{
+    width:320px;
+    height:320px;
+    background:#00d9ff;
+    top:-80px;
+    left:-80px;
+}
+
+.b2{
+    width:280px;
+    height:280px;
+    background:#7c3aed;
+    bottom:-100px;
+    right:-60px;
+    animation-delay:2s;
+}
+
+.b3{
+    width:250px;
+    height:250px;
+    background:#2563eb;
+    top:40%;
+    left:45%;
+    animation-delay:4s;
+}
+
+@keyframes floatBlob{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-50px);}
+}
+
+/* =====================================
+   NAVBAR
+===================================== */
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 8%;
+    position:sticky;
+    top:0;
+    backdrop-filter:blur(18px);
+    background:rgba(255,255,255,.05);
+    border-bottom:1px solid rgba(255,255,255,.08);
+    z-index:999;
+}
+
+.logo{
+    font-size:30px;
+    font-weight:700;
+    color:#38bdf8;
+    text-shadow:0 0 15px cyan;
+    transition:.3s;
+}
+
+.logo:hover{
+    transform:scale(1.08);
+    text-shadow:0 0 30px cyan;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:35px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    position:relative;
+    transition:.35s;
+}
+
+nav a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-5px;
+    width:0;
+    height:2px;
+    background:#00d9ff;
+    transition:.35s;
+}
+
+nav a:hover{
+    color:#00d9ff;
+    text-shadow:0 0 12px cyan;
+}
+
+nav a:hover::after{
+    width:100%;
+}
+
+/* =====================================
+   HERO
+===================================== */
+
+.hero{
+    min-height:90vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:30px;
+}
+
+.glass{
+    width:900px;
+    padding:55px;
+    text-align:center;
+    border-radius:30px;
+    background:rgba(255,255,255,.07);
+    backdrop-filter:blur(18px);
+    border:1px solid rgba(255,255,255,.12);
+    box-shadow:0 0 35px rgba(0,255,255,.18);
+    animation:fadeUp 1.2s ease;
+}
+
+.subtitle{
+    color:#38bdf8;
+    letter-spacing:4px;
+    margin-bottom:20px;
+    font-weight:600;
+}
+
+.title{
+    font-size:65px;
+    line-height:1.1;
+    margin-bottom:25px;
+}
+
+.title span{
+    background:linear-gradient(90deg,#00ffff,#7c3aed,#00ffff);
+    background-size:300%;
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    animation:gradientMove 5s linear infinite;
+}
+
+@keyframes gradientMove{
+    to{
+        background-position:300%;
+    }
+}
+
+.glass p{
+    color:#d1d5db;
+    line-height:1.8;
+    font-size:18px;
+    margin-bottom:35px;
+}
+
+/* =====================================
+   BUTTONS
+===================================== */
+
+.buttons{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.button{
+    padding:15px 35px;
+    border-radius:14px;
+    text-decoration:none;
+    color:white;
+    font-weight:600;
+    background:linear-gradient(45deg,#00cfff,#7c3aed);
+    box-shadow:0 0 20px #00d9ff;
+    transition:.35s;
+    position:relative;
+    overflow:hidden;
+}
+
+.button:hover{
+    transform:translateY(-5px);
+    box-shadow:0 0 25px cyan,0 0 50px cyan;
+}
+
+.secondary{
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.12);
+}
+
+/* =====================================
+   FEATURE CARDS
+===================================== */
+
+.features{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:30px;
+    padding:80px 8%;
+}
+
+.feature{
+    width:320px;
+    padding:35px;
+    border-radius:25px;
+    background:rgba(255,255,255,.06);
+    backdrop-filter:blur(20px);
+    border:1px solid rgba(255,255,255,.12);
+    text-align:center;
+    transition:.4s;
+}
+
+.feature:hover{
+    transform:translateY(-12px) scale(1.04);
+    box-shadow:0 0 25px cyan,0 0 50px #7c3aed;
+}
+
+.icon{
+    font-size:60px;
+    margin-bottom:20px;
+}
+
+.feature h2{
+    color:#38bdf8;
+    margin-bottom:15px;
+    transition:.3s;
+}
+
+.feature:hover h2{
+    letter-spacing:2px;
+    text-shadow:0 0 20px cyan;
+}
+
+.feature p{
+    color:#cbd5e1;
+    line-height:1.7;
+}
+
+/* =====================================
+   STATS
+===================================== */
+
+.stats{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:30px;
+    padding:80px 8%;
+}
+
+.stat{
+    width:220px;
+    padding:30px;
+    border-radius:20px;
+    background:rgba(255,255,255,.05);
+    text-align:center;
+    transition:.3s;
+}
+
+.stat:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 20px cyan;
+}
+
+.stat h1{
+    font-size:42px;
+    color:#00d9ff;
+}
+
+.stat p{
+    margin-top:10px;
+    color:#cbd5e1;
+}
+
+/* =====================================
+   FOOTER
+===================================== */
+
+footer{
+    text-align:center;
+    padding:35px;
+    color:#94a3b8;
+}
+
+/* =====================================
+   ANIMATION
+===================================== */
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(50px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* ==========================
+   SCROLL REVEAL
+========================== */
+
+.hidden-home{
+opacity:0;
+transform:translateY(80px);
+transition:1s;
+}
+
+.show-home{
+opacity:1;
+transform:translateY(0);
+}
+
+/* ==========================
+   CURSOR GLOW
+========================== */
+
+.cursor-glow-home{
+
+position:fixed;
+
+width:220px;
+height:220px;
+
+background:radial-gradient(circle,
+rgba(0,255,255,.22),
+transparent);
+
+border-radius:50%;
+
+pointer-events:none;
+
+transform:translate(-50%,-50%);
+
+filter:blur(45px);
+
+z-index:-1;
+
+}
+
+/* ==========================
+   STARS
+========================== */
+
+.star-home{
+
+position:fixed;
+
+width:2px;
+height:2px;
+
+background:white;
+
+border-radius:50%;
+
+animation:twinkleHome infinite;
+
+z-index:-5;
+
+}
+
+@keyframes twinkleHome{
+
+0%,100%{
+opacity:.2;
+transform:scale(.7);
+}
+
+50%{
+opacity:1;
+transform:scale(2);
+}
+
+}
+
+/* ==========================
+   RIPPLE EFFECT
+========================== */
+
+.button{
+position:relative;
+overflow:hidden;
+}
+
+.ripple-home{
+
+position:absolute;
+
+width:10px;
+height:10px;
+
+border-radius:50%;
+
+background:rgba(255,255,255,.7);
+
+transform:translate(-50%,-50%);
+
+animation:rippleHome .7s linear;
+
+pointer-events:none;
+
+}
+
+@keyframes rippleHome{
+
+from{
+width:0;
+height:0;
+opacity:.8;
+}
+
+to{
+width:320px;
+height:320px;
+opacity:0;
+}
+
+}
+
+/* ==========================
+   FLOATING ANIMATION
+========================== */
+
+.feature{
+
+animation:floatFeature 4s ease-in-out infinite;
+
+}
+
+.feature:nth-child(2){
+
+animation-delay:1s;
+
+}
+
+.feature:nth-child(3){
+
+animation-delay:2s;
+
+}
+
+@keyframes floatFeature{
+
+0%,100%{
+transform:translateY(0);
+}
+
+50%{
+transform:translateY(-10px);
+}
+
+}
+
+/* ==========================
+   TITLE HOVER
+========================== */
+
+.title{
+transition:.4s;
+}
+
+.title:hover{
+
+letter-spacing:2px;
+
+text-shadow:
+0 0 15px cyan,
+0 0 30px cyan;
+
+}
+</style>
+
+<!-- Animated Background -->
+
+<div class="background">
+
+<div class="blob b1"></div>
+<div class="blob b2"></div>
+<div class="blob b3"></div>
+
+</div>
+
+<!-- Navbar -->
+
+<nav>
+
+<div class="logo">
+MC STORE
+</div>
+
+<ul>
+
+<li><a href="about.html">About</a></li>
+
+<li><a href="index.html">Ranks</a></li>
+
+<li><a href="contact.html">Contact</a></li>
+
+</ul>
+
+</nav>
+
+<!-- Hero -->
+
+<section class="hero">
+
+<div class="glass">
+
+<h3 class="subtitle">
+WELCOME TO THE SERVER
+</h3>
+
+<h1 class="title">
+
+Experience The
+
+<span>Ultimate Minecraft Adventure</span>
+
+</h1>
+
+<p>
+
+Join thousands of players, unlock premium ranks,
+discover amazing adventures, and enjoy one of the
+best Minecraft communities.
+
+</p>
+
+<div class="buttons">
+
+<a href="index.html" class="button">
+
+Buy Ranks
+
+</a>
+
+<a href="about.html" class="button secondary">
+
+Learn More
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- Feature Cards -->
+
+<section class="features">
+
+<div class="feature">
+
+<div class="icon">⚔️</div>
+
+<h2>PvP Arena</h2>
+
+<p>
+
+Fight players in exciting battles and become the strongest warrior.
+
+</p>
+
+</div>
+
+<div class="feature">
+
+<div class="icon">💰</div>
+
+<h2>Economy</h2>
+
+<p>
+
+Earn money, trade with players and build your own empire.
+
+</p>
+
+</div>
+
+<div class="feature">
+
+<div class="icon">👑</div>
+
+<h2>Premium Ranks</h2>
+
+<p>
+
+Unlock exclusive commands, cosmetics and amazing rewards.
+
+</p>
+
+</div>
+
+</section>
+
+<!-- Statistics -->
+
+<section class="stats">
+
+<div class="stat">
+
+<h1>2K+</h1>
+
+<p>Registered Players</p>
+
+</div>
+
+<div class="stat">
+
+<h1>99.9%</h1>
+
+<p>Server Uptime</p>
+
+</div>
+
+<div class="stat">
+
+<h1>150+</h1>
+
+<p>Custom Features</p>
+
+</div>
+
+<div class="stat">
+
+<h1>24/7</h1>
+
+<p>Support</p>
+
+</div>
+
+</section>
+
+<footer>
+
+© 2026 MC STORE • All Rights Reserved
+
+</footer>
+
+<script>
+  /* ==========================
+   TYPING TEXT ANIMATION
+========================== */
+
+const subtitle = document.querySelector(".subtitle");
+
+const texts = [
+    "WELCOME TO THE SERVER",
+    "PREMIUM MINECRAFT EXPERIENCE",
+    "SURVIVE • BUILD • CONQUER",
+    "JOIN THOUSANDS OF PLAYERS"
+];
+
+let textIndex = 0;
+let charIndex = 0;
+let deleting = false;
+
+function typeText(){
+
+    const current = texts[textIndex];
+
+    if(!deleting){
+        subtitle.textContent = current.substring(0,charIndex++);
+    }else{
+        subtitle.textContent = current.substring(0,charIndex--);
+    }
+
+    let speed = deleting ? 40 : 90;
+
+    if(!deleting && charIndex > current.length){
+        deleting = true;
+        speed = 1600;
+    }
+
+    if(deleting && charIndex === 0){
+        deleting = false;
+        textIndex = (textIndex + 1) % texts.length;
+    }
+
+    setTimeout(typeText, speed);
+}
+
+typeText();
+
+
+/* ==========================
+   SCROLL REVEAL
+========================== */
+
+const cards = document.querySelectorAll(".feature,.stat");
+
+const observer = new IntersectionObserver(entries=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+entry.target.classList.add("show-home");
+}
+
+});
+
+});
+
+cards.forEach(card=>{
+
+card.classList.add("hidden-home");
+
+observer.observe(card);
+
+});
+
+
+/* ==========================
+   CURSOR GLOW
+========================== */
+
+const glow = document.createElement("div");
+
+glow.className = "cursor-glow-home";
+
+document.body.appendChild(glow);
+
+document.addEventListener("mousemove",e=>{
+
+glow.style.left = e.clientX + "px";
+glow.style.top = e.clientY + "px";
+
+});
+
+
+/* ==========================
+   CREATE STARS
+========================== */
+
+for(let i=0;i<200;i++){
+
+const star=document.createElement("div");
+
+star.className="star-home";
+
+star.style.left=Math.random()*100+"vw";
+star.style.top=Math.random()*100+"vh";
+star.style.animationDuration=(2+Math.random()*4)+"s";
+star.style.animationDelay=Math.random()*5+"s";
+
+document.body.appendChild(star);
+
+}
+
+
+/* ==========================
+   BUTTON RIPPLE
+========================== */
+
+document.querySelectorAll(".button").forEach(button=>{
+
+button.addEventListener("click",function(e){
+
+const ripple=document.createElement("span");
+
+ripple.className="ripple-home";
+
+const rect=this.getBoundingClientRect();
+
+ripple.style.left=(e.clientX-rect.left)+"px";
+ripple.style.top=(e.clientY-rect.top)+"px";
+
+this.appendChild(ripple);
+
+setTimeout(()=>{
+ripple.remove();
+},700);
+
+});
+
+});
+</script>
+
+</body>
+</html>

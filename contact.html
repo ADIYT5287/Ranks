@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Contact Us</title>
+
+<link rel="stylesheet" href="contact.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<style>
+  
+  /* ===================================
+   RESET
+=================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#050816;
+    color:#fff;
+    overflow-x:hidden;
+    min-height:100vh;
+}
+
+/* ===================================
+   ANIMATED BACKGROUND
+=================================== */
+
+.background{
+    position:fixed;
+    inset:0;
+    z-index:-5;
+    overflow:hidden;
+    background:
+    radial-gradient(circle at top left,#00cfff22,transparent 35%),
+    radial-gradient(circle at bottom right,#7c3aed33,transparent 35%),
+    #050816;
+}
+
+.blob{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(80px);
+    animation:floatBlob 10s ease-in-out infinite;
+}
+
+.blob1{
+    width:320px;
+    height:320px;
+    background:#00d9ff;
+    top:-100px;
+    left:-100px;
+}
+
+.blob2{
+    width:270px;
+    height:270px;
+    background:#7c3aed;
+    bottom:-80px;
+    right:-80px;
+    animation-delay:2s;
+}
+
+.blob3{
+    width:240px;
+    height:240px;
+    background:#2563eb;
+    top:45%;
+    left:45%;
+    animation-delay:4s;
+}
+
+@keyframes floatBlob{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-45px);}
+}
+
+/* ===================================
+   NAVBAR
+=================================== */
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 8%;
+    position:sticky;
+    top:0;
+    backdrop-filter:blur(18px);
+    background:rgba(255,255,255,.05);
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.logo{
+    font-size:30px;
+    font-weight:700;
+    color:#38bdf8;
+    text-shadow:0 0 18px cyan;
+}
+
+nav ul{
+    display:flex;
+    gap:35px;
+    list-style:none;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    transition:.35s;
+    position:relative;
+}
+
+nav a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-5px;
+    width:0;
+    height:2px;
+    background:#00d9ff;
+    transition:.35s;
+}
+
+nav a:hover{
+    color:#00d9ff;
+    text-shadow:0 0 15px cyan;
+}
+
+nav a:hover::after{
+    width:100%;
+}
+
+/* ===================================
+   CONTACT
+=================================== */
+
+.contact{
+    min-height:90vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px;
+}
+
+.glass{
+    width:900px;
+    padding:50px;
+    border-radius:30px;
+    text-align:center;
+    background:rgba(255,255,255,.07);
+    backdrop-filter:blur(20px);
+    border:1px solid rgba(255,255,255,.12);
+    box-shadow:0 0 30px rgba(0,255,255,.2);
+    animation:fadeUp 1s ease;
+}
+
+.subtitle{
+    color:#38bdf8;
+    letter-spacing:4px;
+    margin-bottom:20px;
+}
+
+.title{
+    font-size:60px;
+    margin-bottom:20px;
+}
+
+.title span{
+    background:linear-gradient(90deg,#00ffff,#7c3aed,#00ffff);
+    background-size:300%;
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    animation:gradientMove 5s linear infinite;
+}
+
+@keyframes gradientMove{
+    to{
+        background-position:300%;
+    }
+}
+
+.glass p{
+    color:#d1d5db;
+    margin-bottom:35px;
+    line-height:1.8;
+}
+
+/* ===================================
+   FORM
+=================================== */
+
+form{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+input,
+textarea{
+    width:100%;
+    padding:18px;
+    font-size:16px;
+    color:white;
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:14px;
+    outline:none;
+    transition:.35s;
+    backdrop-filter:blur(15px);
+}
+
+input::placeholder,
+textarea::placeholder{
+    color:#b6c2d1;
+}
+
+input:focus,
+textarea:focus{
+    border-color:#00d9ff;
+    box-shadow:0 0 18px cyan;
+    transform:scale(1.02);
+}
+
+textarea{
+    resize:none;
+}
+
+/* BUTTON */
+
+button{
+    padding:18px;
+    font-size:18px;
+    font-weight:600;
+    color:white;
+    cursor:pointer;
+    border:none;
+    border-radius:14px;
+    background:linear-gradient(45deg,#00cfff,#7c3aed);
+    box-shadow:0 0 20px #00cfff;
+    transition:.35s;
+}
+
+button:hover{
+    transform:translateY(-5px);
+    box-shadow:
+    0 0 25px cyan,
+    0 0 50px cyan,
+    0 0 80px #7c3aed;
+}
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    padding:30px;
+    color:#94a3b8;
+}
+
+/* ANIMATION */
+
+@keyframes fadeUp{
+
+from{
+opacity:0;
+transform:translateY(50px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+/* ===================================
+   MOBILE
+=================================== */
+
+@media(max-width:768px){
+
+nav{
+    flex-direction:column;
+    gap:15px;
+}
+
+nav ul{
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.glass{
+    width:100%;
+    padding:30px;
+}
+
+.title{
+    font-size:42px;
+}
+
+}
+  
+  /* ==========================
+   SCROLL REVEAL
+========================== */
+
+.hidden{
+
+opacity:0;
+
+transform:translateY(80px);
+
+transition:1s;
+
+}
+
+.show{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+/* ==========================
+   CURSOR GLOW
+========================== */
+
+.cursor-glow{
+
+position:fixed;
+
+width:220px;
+
+height:220px;
+
+background:radial-gradient(circle,
+rgba(0,255,255,.25),
+transparent);
+
+border-radius:50%;
+
+pointer-events:none;
+
+transform:translate(-50%,-50%);
+
+filter:blur(45px);
+
+z-index:-1;
+
+}
+
+/* ==========================
+   RIPPLE EFFECT
+========================== */
+
+button{
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.ripple{
+
+position:absolute;
+
+width:10px;
+
+height:10px;
+
+background:rgba(255,255,255,.7);
+
+border-radius:50%;
+
+transform:translate(-50%,-50%);
+
+animation:rippleEffect .7s linear;
+
+pointer-events:none;
+
+}
+
+@keyframes rippleEffect{
+
+0%{
+
+width:0;
+
+height:0;
+
+opacity:.8;
+
+}
+
+100%{
+
+width:350px;
+
+height:350px;
+
+opacity:0;
+
+}
+
+}
+
+/* ==========================
+   TITLE HOVER
+========================== */
+
+.title{
+
+transition:.4s;
+
+}
+
+.title:hover{
+
+letter-spacing:2px;
+
+text-shadow:
+
+0 0 15px cyan,
+
+0 0 35px cyan,
+
+0 0 60px #7c3aed;
+
+}
+
+/* ==========================
+   INPUT HOVER
+========================== */
+
+input:hover,
+textarea:hover{
+
+border-color:#00ffff;
+
+box-shadow:0 0 15px rgba(0,255,255,.5);
+
+}
+
+/* ==========================
+   LOGO ANIMATION
+========================== */
+
+.logo{
+
+transition:.35s;
+
+}
+
+.logo:hover{
+
+transform:scale(1.08);
+
+text-shadow:
+
+0 0 15px cyan,
+
+0 0 30px cyan;
+
+}
+  
+</style>
+
+<!-- Aniated Background -->
+
+<div class="background">
+
+<div class="blob blob1"></div>
+<div class="blob blob2"></div>
+<div class="blob blob3"></div>
+
+</div>
+
+<!-- Navbar -->
+
+<nav>
+
+<div class="logo">
+
+MC STORE
+
+</div>
+
+<ul>
+
+<li><a href="home.html">Home</a></li>
+
+<li><a href="about.html">About</a></li>
+
+<li><a href="index.html">Ranks</a></li>
+
+</ul>
+
+</nav>
+
+<!-- Contact Form -->
+
+<section class="contact">
+
+<div class="glass">
+
+<h3 class="subtitle">
+
+GET IN TOUCH
+
+</h3>
+
+<h1 class="title">
+
+Send Us A
+
+<span>Message</span>
+
+</h1>
+
+<p>
+
+Have questions or need help?
+Fill out the form below and we'll reply as soon as possible.
+
+</p>
+
+<form action="https://formspree.io/f/xzdlrbed" method="POST">
+
+<input
+type="text"
+name="name"
+placeholder="Your Name"
+required>
+
+<input
+type="email"
+name="email"
+placeholder="Your Email"
+required>
+
+<input
+type="text"
+name="subject"
+placeholder="Subject"
+required>
+
+<textarea
+name="message"
+rows="7"
+placeholder="Type your message..."
+required></textarea>
+
+<button type="submit">
+
+Send Message
+
+</button>
+
+</form>
+
+</div>
+
+</section>
+
+<script>
+  /* ==========================
+   TYPING ANIMATION
+========================== */
+
+const subtitle = document.querySelector(".subtitle");
+
+const words = [
+  "GET IN TOUCH",
+  "WE'D LOVE TO HEAR FROM YOU",
+  "SEND US YOUR FEEDBACK",
+  "CONTACT OUR TEAM"
+];
+
+let wordIndex = 0;
+let charIndex = 0;
+let deleting = false;
+
+function type() {
+  
+  const current = words[wordIndex];
+  
+  if (!deleting) {
+    subtitle.textContent = current.substring(0, charIndex++);
+  } else {
+    subtitle.textContent = current.substring(0, charIndex--);
+  }
+  
+  let speed = deleting ? 40 : 80;
+  
+  if (!deleting && charIndex > current.length) {
+    deleting = true;
+    speed = 1500;
+  }
+  
+  if (deleting && charIndex === 0) {
+    deleting = false;
+    wordIndex = (wordIndex + 1) % words.length;
+  }
+  
+  setTimeout(type, speed);
+}
+
+type();
+
+
+/* ==========================
+   SCROLL REVEAL
+========================== */
+
+const glass = document.querySelector(".glass");
+
+const observer = new IntersectionObserver(entries => {
+  
+  entries.forEach(entry => {
+    
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+    }
+    
+  });
+  
+});
+
+glass.classList.add("hidden");
+
+observer.observe(glass);
+
+
+/* ==========================
+   CURSOR GLOW
+========================== */
+
+const glow = document.createElement("div");
+
+glow.className = "cursor-glow";
+
+document.body.appendChild(glow);
+
+document.addEventListener("mousemove", (e) => {
+  
+  glow.style.left = e.clientX + "px";
+  glow.style.top = e.clientY + "px";
+  
+});
+
+
+/* ==========================
+   BUTTON RIPPLE
+========================== */
+
+const button = document.querySelector("button");
+
+button.addEventListener("click", function(e) {
+  
+  const ripple = document.createElement("span");
+  
+  ripple.className = "ripple";
+  
+  const rect = this.getBoundingClientRect();
+  
+  ripple.style.left = (e.clientX - rect.left) + "px";
+  ripple.style.top = (e.clientY - rect.top) + "px";
+  
+  this.appendChild(ripple);
+  
+  setTimeout(() => {
+    
+    ripple.remove();
+    
+  }, 700);
+  
+});
+</script>
+
+</body>
+</html>
